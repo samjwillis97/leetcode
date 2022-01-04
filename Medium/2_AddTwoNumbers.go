@@ -5,11 +5,11 @@ import (
 )
 
 func main() {
-	l1 := helpers.ParseIntLinkedListFromStr("0->")
-	l2 := helpers.ParseIntLinkedListFromStr("7->3->")
-	helpers.PrintIntLinkedListNode(l1)
-	helpers.PrintIntLinkedListNode(l2)
-	helpers.PrintIntLinkedListNode(addTwoNumbers(l1, l2))
+	l1 := helpers.ParseLinkedListFromStr("0->")
+	l2 := helpers.ParseLinkedListFromStr("7->3->")
+	helpers.PrintLinkedListNode(l1)
+	helpers.PrintLinkedListNode(l2)
+	helpers.PrintLinkedListNode(addTwoNumbers(l1, l2))
 }
 
 // You are given two non-empty linked lists representing two non-negative integers.
@@ -29,8 +29,8 @@ func main() {
  *     Next *ListNode
  * }
  */
-func addTwoNumbers(l1 *helpers.IntListNode, l2 *helpers.IntListNode) *helpers.IntListNode {
-	var head, prev *helpers.IntListNode
+func addTwoNumbers(l1 *helpers.ListNode, l2 *helpers.ListNode) *helpers.ListNode {
+	var head, prev *helpers.ListNode
 	prev = nil
 	carry := 0
 	for i := 0; l1 != nil || l2 != nil || carry != 0; i++ {
@@ -50,7 +50,7 @@ func addTwoNumbers(l1 *helpers.IntListNode, l2 *helpers.IntListNode) *helpers.In
 		} else {
 			carry = 0
 		}
-		sum := helpers.IntListNode{
+		sum := helpers.ListNode{
 			Val:  newVal,
 			Next: nil,
 		}

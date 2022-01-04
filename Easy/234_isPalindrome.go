@@ -11,8 +11,8 @@ type ListNode struct {
 }
 
 func main() {
-	node := helpers.ParseIntLinkedListFromStr("1->2->2->1->")
-	helpers.PrintIntLinkedListNode(node)
+	node := helpers.ParseLinkedListFromStr("1->2->2->1->")
+	helpers.PrintLinkedListNode(node)
 	fmt.Println(isPalindrome234(node))
 }
 
@@ -27,7 +27,7 @@ func main() {
  * }
  */
 
-func isPalindrome234(head *helpers.IntListNode) bool {
+func isPalindrome234(head *helpers.ListNode) bool {
 	var numbers = make([]int, 0)
 	if head.Next == nil {
 		return true
@@ -42,7 +42,7 @@ func isPalindrome234(head *helpers.IntListNode) bool {
 	return true
 }
 
-func AppendValList(head *helpers.IntListNode, list []int) []int {
+func AppendValList(head *helpers.ListNode, list []int) []int {
 	list = append(list, head.Val)
 	if head.Next != nil {
 		list = AppendValList(head.Next, list)

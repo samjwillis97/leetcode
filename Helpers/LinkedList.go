@@ -6,12 +6,12 @@ import (
 	"strings"
 )
 
-type IntListNode struct {
+type ListNode struct {
 	Val  int
-	Next *IntListNode
+	Next *ListNode
 }
 
-func ParseIntLinkedListFromStr(input string) *IntListNode {
+func ParseLinkedListFromStr(input string) *ListNode {
 	arr := strings.Split(input, `->`)
 	if len(arr) == 0 {
 		return nil
@@ -24,24 +24,24 @@ func ParseIntLinkedListFromStr(input string) *IntListNode {
 		}
 		intArr[i] = t
 	}
-	node := &IntListNode{intArr[0], nil}
+	node := &ListNode{intArr[0], nil}
 	p := node
 	for i := 1; i < len(arr)-1; i++ {
-		p.Next = &IntListNode{intArr[i], nil}
+		p.Next = &ListNode{intArr[i], nil}
 		p = p.Next
 	}
 	return node
 }
 
-func PrintIntLinkedListNode(node *IntListNode) {
+func PrintLinkedListNode(node *ListNode) {
 	for p := node; p != nil; p = p.Next {
 		fmt.Printf("%d->", p.Val)
 	}
 	fmt.Println()
 }
 
-func ReverseIntLinkedList(list *IntListNode) *IntListNode {
-	var prev, current, next *IntListNode
+func ReverseLinkedList(list *ListNode) *ListNode {
+	var prev, current, next *ListNode
 	prev = nil
 	current = list
 	next = nil
