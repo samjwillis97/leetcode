@@ -15,8 +15,6 @@ Personal LeetCode Solutions for Practice
   - Start at Source Node and Layer by Layer through the graph, anlyse the nodes directly related to the source node. Then, you must move on to the next level neighbour nodes
   - Use a FIFO queue data structure to store the node and mark it as "visited" until it marks all the neighbouring vertices directly related to it.
     - The nodes neighbors will be viewed in the order in which it inserts them in the node, starting with the node that was inserted first
-  - Guide:
-    - 
 - Depth First Search
 - Backtracking
 
