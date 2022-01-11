@@ -17,8 +17,38 @@ Personal LeetCode Solutions for Practice
     - The nodes neighbors will be viewed in the order in which it inserts them in the node, starting with the node that was inserted first
 - Depth First Search
 - Backtracking
+  - Its like a splitting of paths, see https://leetcode.com/problems/letter-case-permutation/discuss/379928/Python-clear-solution
+  - Technique for solving problems recursively, by trying to build a solution incrementally, one piece at a time.
+  - Algorithm:
+    - If it is not a solution, return false
+    - if it is a new solution, add to list
+- DFS + Backtracking Template
+```python
+def dfs( parameter ):
+
+	if stop condtion or base case:
+		# base case:
+		update result
+	    return
+	
+	else:
+		# general cases:
+		for all possible next moves:
+		
+		    select one next move
+			dfs( paramter with selected next move )
+			undo the selection
+	
+		return
+
+```
+
 
 ## Data Structures
 
 - Stack
   - FILO Queue
+  
+## Revise
+
+- 77_Combination

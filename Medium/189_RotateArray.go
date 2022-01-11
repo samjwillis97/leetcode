@@ -37,7 +37,7 @@ func rotate(nums []int, k int) {
 		copy(nums, rarr)
 	}
 }
-1
+
 //func rotate(nums []int, k int)  {
 //
 //	n := len(nums)

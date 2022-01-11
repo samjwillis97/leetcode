@@ -1,14 +1,34 @@
-package helpers
+package reverseLinkedList
 
 import (
 	"fmt"
 	"strconv"
 	"strings"
+	"testing"
 )
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
+func TestMergeTwoLists(t *testing.T) {
+	tests := []struct {
+		list string
+		want string
+	}{
+		{"[1,2,4]", "[4,2,1]"},
+	}
+	for i, tc := range tests {
+		t.Run(fmt.Sprintf("TestMergeTwoLists=%d", i), func(t *testing.T) {
+			got := reverseList(ParseLinkedListFromStr(tc.list))
+			if got != ParseLinkedListFromStr(tc.want) {
+				fmt.Println("Got")
+				PrintLinkedListNode(got)
+				fmt.Println("Want")
+				PrintLinkedListNode(ParseLinkedListFromStr(tc.want))
+
+				t.Fatalf("Lists Mismatched")
+			} else {
+				t.Logf("Success !")
+			}
+		})
+	}
 }
 
 func ParseLinkedListFromStr(input string) *ListNode {
@@ -33,39 +53,9 @@ func ParseLinkedListFromStr(input string) *ListNode {
 	return node
 }
 
-func LinkedListToStr(node *ListNode) string {
-	var str strings.Builder
-	i := 0
-	str.WriteString("[")
-	for p := node; p != nil; p = p.Next {
-		if i != 0 {
-			str.WriteString(",")
-		}
-		str.WriteString(fmt.Sprintf("%d", p.Val))
-		i++
-	}
-	str.WriteString("]")
-	return str.String()
-}
-
 func PrintLinkedListNode(node *ListNode) {
 	for p := node; p != nil; p = p.Next {
 		fmt.Printf("%d->", p.Val)
 	}
 	fmt.Println()
-}
-
-func ReverseLinkedList(list *ListNode) *ListNode {
-	var prev, current, next *ListNode
-	prev = nil
-	current = list
-	next = nil
-
-	for current != nil {
-		next = current.Next
-		current.Next = prev
-		prev = current
-		current = next
-	}
-	return prev
 }
